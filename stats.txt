@@ -1,0 +1,205 @@
+﻿import random
+# Online Python - IDE, Editor, Compiler, Interpreter
+
+
+def stats():
+    count = 0
+    total = 0
+    consecutive = 0
+    while True:
+        num = ['h', 't']
+        loop = random.choice(num)
+
+
+        print(loop)
+        for i in loop:
+            total = total + 1
+        
+        if loop == 'h':
+            count = count + 1
+            consecutive = consecutive + 1
+            
+            if consecutive == 10:
+                break
+        else:
+            consecutive = 0
+    print(f'The amount of heads flipped was: {count} at {(count / total) * 100}%')
+    print(count, total)
+    
+stats()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import random
+import time
+import math
+# Online Python - IDE, Editor, Compiler, Interpreter
+def stats():
+    count = 0
+    total = 0
+    consecutive = 0
+    start = time.time()
+    while True:
+        num = ['h', 't']
+        loop = random.choice(num)
+        #print(loop)
+        for i in loop:
+            total = total + 1
+        if loop == 'h':
+            count = count + 1
+            consecutive = consecutive + 1
+            if consecutive == 20:
+                break
+        else:
+            consecutive = 0
+    percentage = (count/total) * 100
+    finish = time.time()
+    print(f'The amount of heads flipped was: {count} out of {total} at {round(percentage, 2)}%')
+    print(math.ceil(finish - start))
+    return percentage
+    
+results1 = stats()
+print(round(results1))
+results2 = stats()
+print(round(results2))
+results3 = stats()
+print(round(results3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import random
+import time
+import math
+
+
+def stats():
+    count = 0
+    total = 0
+    consecutive = 0
+    score = 0
+    start = time.time()
+    while total <= 4999999:
+        num = ['h', 't']
+        loop = random.choice(num)
+        #print(loop)
+        for i in loop:
+            total = total + 1
+        if loop == 'h':
+            count = count + 1
+            consecutive = consecutive + 1
+            if consecutive > score:
+                score = consecutive
+            if consecutive == 26:
+                break
+        else:
+            consecutive = 0
+    percentage = (count/total) * 100
+    finish = time.time()
+    print(f'The amount of heads flipped was: {count} out of {total} at {round(percentage, 2)}%')
+    print(f'This step took {math.ceil(finish - start)} seconds')
+    print(f'The longest streak of heads flipped was {score}!')
+    
+stats()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import random, time, math
+
+
+def stats():
+    head_count = 0
+    total_count = 0
+    max_count = 1000000
+    consec_count = 0
+    top_count = 0
+
+
+    start = time.time()
+    while total_count < max_count:
+        total_count += 1
+        if random.choice([True, False]):
+            head_count += 1
+            consec_count += 1
+            if consec_count > top_count:
+                top_count = consec_count
+        else:
+            consec_count = 0
+            
+    finish = time.time()
+    percentage = round((head_count / total_count) * 100, 2)
+    tot_time = math.ceil(finish - start)
+    prob = 0.5 ** top_count
+    print(f'''This was a project to see how many times a coin could consecutively land on heads
+in a given amount. In this case, the total count was {total_count}. A total of {head_count}
+coins landed on heads, giving a final percentage of {percentage}. The largest streak of heads, or
+the consecutive amount of heads, was {top_count} which is about a {round(prob, 10)}% chance. 
+This process took roughly {tot_time} second.''')
